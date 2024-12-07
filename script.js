@@ -13,6 +13,8 @@ const displayPokemonList = async (pokemonList) => {
   for (pokemon of pokemonList) {
     const $pokemonContainer = document.createElement("section");
     $pokemonContainer.classList.add("pokemon-container");
+    const $wrapper = document.createElement("div");
+    $wrapper.classList.add("list-item-wrapper");
     const $spanElement = document.createElement("span");
     const $liElement = document.createElement("li");
     $liElement.classList.add("list-item");
@@ -34,8 +36,11 @@ const displayPokemonList = async (pokemonList) => {
 
     $spanElement.textContent = pokemon.name;
     $spanElement.classList.add("pokemon-name-span");
-    $liElement.append($spanElement, $imgElement);
-    $ulElement.append($liElement);
+    $wrapper.classList.add("wrapper");
+    $liElement.append($imgElement);
+    $wrapper.appendChild($liElement);
+    $wrapper.appendChild($spanElement);
+    $ulElement.append($wrapper);
     loadCurrentStyles(name);
   }
 };
