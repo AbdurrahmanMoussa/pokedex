@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="main">
+      <header class="main-header">
+        <h1>Pokedex</h1>
+      </header>
+      <section class="grid-container">
+        <section class="pokedex-container">
+          <ul class="list"></ul>
+          <button class="load-button">Load More</button>
+        </section>
+        <dialog id="dialog">
+          <section class="pokemon-details">
+            <section class="dialog-left">
+              <h1 class="pokemon-name"></h1>
+              <img id="dialog-pokemon-sprite" alt="Pokemon sprite" />
+            </section>
+
+            <section class="dialog-right">
+              <button id="close" class="btn-close">Close</button>
+
+              <section class="types-container">
+                <h2>Types</h2>
+                <span id="types"></span>
+              </section>
+
+              <section class="moves-container">
+                <h2>Moves</h2>
+                <span id="moves"></span>
+              </section>
+
+              <button id="caught" class="btn-catch">Catch</button>
+              <button id="release">Release</button>
+            </section>
+          </section>
+        </dialog>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

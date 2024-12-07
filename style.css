@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=Montserrat:ital@0;1&family=Shadows+Into+Light&display=swap");
+:root {
+  --red: #f44336;
+  --green: lightgreen;
+  --white: rgb(255, 255, 255);
+}
+html,
+body,
+button {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Shadows Into Light", sans-serif;
+}
+button {
+  font-size: 2rem;
+}
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2vw;
+}
+
+.pokedex-container {
+  padding-bottom: 2rem;
+}
+
+.pokemon-name-span {
+  font-size: 1.5rem;
+  display: flex;
+  position: absolute;
+  justify-self: center;
+  align-self: flex-end;
+  font-size: 4vw;
+}
+.list {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+.sprite-img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+.load-button {
+  display: flex;
+  padding: 1rem;
+  background-color: var(--green);
+  align-self: center;
+  justify-self: center;
+}
+
+.load-button:hover {
+  cursor: pointer;
+  background-color: var(--green);
+}
+.list-item {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  list-style: none;
+  border: 2px solid black;
+}
+.list-item:hover {
+  cursor: pointer;
+}
+#dialog {
+  max-width: 100%;
+  width: 70%;
+  height: 70%;
+  padding: 2rem;
+  position: fixed;
+  background-color: var(--white);
+  margin: auto;
+}
+.pokemon-details {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-areas: "left right";
+  background-color: var(--white);
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  font-size: xx-large;
+}
+
+.dialog-left {
+  grid-area: left;
+  display: grid;
+  margin-top: -5rem;
+}
+
+.dialog-right {
+  grid-area: right;
+  display: grid;
+  grid-template-areas:
+    "close"
+    "types"
+    "moves"
+    "catch"
+    ".";
+  grid-template-columns: 1fr;
+  height: 100%;
+  width: 100%;
+}
+
+.types-container {
+  grid-area: types;
+}
+.moves-container {
+  grid-area: moves;
+}
+
+#close {
+  grid-area: close;
+  justify-self: end;
+  background-color: var(--white);
+  border: 2px solid var(--red);
+  color: var(--red);
+  padding: 1rem 1.5rem;
+  height: 5rem;
+  max-height: 100%;
+  cursor: pointer;
+}
+#close:hover {
+  background-color: var(--red);
+  color: var(--white);
+  border: none;
+}
+
+#caught {
+  grid-area: catch;
+  background-color: var(--green);
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+#release {
+  padding: 10px;
+  background-color: var(--red);
+}
+#release:hover {
+  cursor: pointer;
+  scale: 0.98;
+}
+#dialog-pokemon-sprite {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 90%;
+  height: 600px;
+  border-radius: 8px;
+  border: 1px solid black;
+  margin-right: auto;
+  align-self: center;
+  justify-self: center;
+}
+.dialog-left .pokemon-name {
+  justify-self: flex-start;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: start;
+}
+
+.types-container span,
+.moves-container span {
+  margin: 0;
+  padding: 0;
+}
+.types-container h2,
+.moves-container h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.caught {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.caught-label {
+  background-color: var(--white);
+  color: var(--green);
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 195, 30, 0.395);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 8rem;
+  font-size: 6vw;
+  z-index: 10;
+}
+@media (max-width: 768px) {
+  .list-item {
+    max-width: 90%;
+  }
+  .sprite-img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  .pokemon-details {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "top"
+      "bottom";
+  }
+
+  .dialog-left {
+    grid-area: top;
+  }
+
+  .dialog-right {
+    grid-area: bottom;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dialog-left,
+  .dialog-right {
+    width: 100%;
+  }
+
+  #close {
+    position: absolute;
+    top: 0;
+    margin-top: 30px;
+    align-self: flex-end;
+  }
+  .pokemon-name {
+    font-size: 1.2rem;
+  }
+  #caught {
+    margin-bottom: 20px;
+  }
+
+  .types-container,
+  .moves-container {
+    flex-direction: column;
+  }
+}
